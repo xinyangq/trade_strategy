@@ -64,7 +64,7 @@ class SMAStrategy(ts.Strategy):
               ("stoprate", 0.05),
               ("bprint", False),)
     def __init__(self):
-        self.close = self.datas[0].close
+        self.close = self.datas[0].close # 这一步不需要，后续引用close时可以直接用self.datas[0].close
         # self.sma1 = bt.indicators.SimpleMovingAverage(self.datas[0], period = self.p.T1)
         # self.sma2 = bt.indicators.SimpleMovingAverage(self.datas[0], period = self.p.T2)
         self.sma1 = ALMA(self.close, period = self.p.T1)
